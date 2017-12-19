@@ -89,17 +89,11 @@
 		578BD6E41FE96C4C0023B5E9 /* CatOrDog */ = {
 			isa = PBXGroup;
 			children = (
-				578BD6E51FE96C4C0023B5E9 /* AppDelegate.swift */,
-				578BD6E71FE96C4C0023B5E9 /* ProfileViewController.swift */,
-				578BD7111FE9B51C0023B5E9 /* ImageCache.swift */,
-				578BD70B1FE984700023B5E9 /* FlickrAPI.swift */,
-				578BD70F1FE98D490023B5E9 /* PhotoDataModel.swift */,
-				578BD7051FE971410023B5E9 /* AnimalPickerController.swift */,
-				578BD70D1FE9868B0023B5E9 /* Search.swift */,
-				578BD6E91FE96C4C0023B5E9 /* Main.storyboard */,
-				578BD7091FE9827B0023B5E9 /* AnimalCell.swift */,
-				578BD6EC1FE96C4C0023B5E9 /* Assets.xcassets */,
-				578BD6EE1FE96C4C0023B5E9 /* LaunchScreen.storyboard */,
+				578BD7171FE9CC120023B5E9 /* Service */,
+				578BD7161FE9CC0A0023B5E9 /* Model */,
+				578BD7151FE9CBFA0023B5E9 /* View */,
+				578BD7141FE9CBE90023B5E9 /* View Controllers */,
+				578BD7131FE9CBDB0023B5E9 /* Supporting Files */,
 				578BD6F11FE96C4C0023B5E9 /* Info.plist */,
 			);
 			path = CatOrDog;
@@ -112,6 +106,52 @@
 				578BD6FC1FE96C4C0023B5E9 /* Info.plist */,
 			);
 			path = CatOrDogTests;
+			sourceTree = "<group>";
+		};
+		578BD7131FE9CBDB0023B5E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				578BD6E91FE96C4C0023B5E9 /* Main.storyboard */,
+				578BD6E51FE96C4C0023B5E9 /* AppDelegate.swift */,
+				578BD6EC1FE96C4C0023B5E9 /* Assets.xcassets */,
+				578BD6EE1FE96C4C0023B5E9 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		578BD7141FE9CBE90023B5E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				578BD6E71FE96C4C0023B5E9 /* ProfileViewController.swift */,
+				578BD7051FE971410023B5E9 /* AnimalPickerController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		578BD7151FE9CBFA0023B5E9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				578BD7091FE9827B0023B5E9 /* AnimalCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		578BD7161FE9CC0A0023B5E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				578BD70D1FE9868B0023B5E9 /* Search.swift */,
+				578BD70F1FE98D490023B5E9 /* PhotoDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		578BD7171FE9CC120023B5E9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				578BD7111FE9B51C0023B5E9 /* ImageCache.swift */,
+				578BD70B1FE984700023B5E9 /* FlickrAPI.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
