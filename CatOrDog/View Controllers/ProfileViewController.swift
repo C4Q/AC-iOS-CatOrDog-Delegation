@@ -12,13 +12,17 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var updateProfileButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // set delegate
         // 1) set the delegate e.g tableView.delegate = self
         PhotoDataModel.manager.delegate = self 
+    }
+    
+    @IBAction func updateProfile(_ sender: UIButton) {
+        tabBarController?.selectedIndex = 1
     }
 }
 
@@ -28,6 +32,7 @@ extension ProfileViewController: PhotoDataModelDelegate {
         // do all ui updates needed
         imageView.image = image
         descriptionLabel.text = photo.title
+        updateProfileButton.isHidden = true
     }
 }
 

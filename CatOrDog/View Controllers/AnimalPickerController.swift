@@ -85,14 +85,13 @@ extension AnimalPickerController: UICollectionViewDataSource {
             cell.imageView.image = image
         }
         else { // we don't have an image for the cell in cache, let's process on background
-            
-            // keep track of cell that was set
+            // keep track of cell that needs to be set so we don't set the wrong cell here and cause flickering
             cell.urlString = photo.url_m.absoluteString
             
             // documents directory
             // testing
             let cachesdirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
-            print(cachesdirectory)
+            print(cachesdirectory ?? "")
             
             ImageCache.manager.processImageInBackground(imageURL: photo.url_m, completion: { (error, image) in
                 if let error = error {
@@ -101,7 +100,7 @@ extension AnimalPickerController: UICollectionViewDataSource {
                 } else if let image  = image  {
                     // set the cell if the url string matches
                     
-                    // cells are being dequeued and reprocessed at this point
+                    // cells are being dequeued and reprocessed at this point so we need to update the cell we tagged earlier in the opening else statement
                     if cell.urlString == photo.url_m.absoluteString {
                         DispatchQueue.main.async {
                             cell.imageView.image = image
@@ -139,11 +138,20 @@ extension AnimalPickerController: UICollectionViewDelegate {
             let photo = PhotoDataModel.getCatPhotos()[indexPath.row] // get furry animal
             let cell = collectionView.cellForItem(at: indexPath) as! AnimalCell
             PhotoDataModel.manager.setProfile(image: cell.imageView.image, photo: photo)
+            showAlert(title: "Furry Friend Selected", message: "\(photo.title)")
         } else {
             let photo = PhotoDataModel.getDogPhotos()[indexPath.row] // get mans best friend
             let cell = collectionView.cellForItem(at: indexPath) as! AnimalCell
             PhotoDataModel.manager.setProfile(image: cell.imageView.image, photo: photo)
+            showAlert(title: "Man's Best Friend", message: "\(photo.title)")
         }
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in self.tabBarController?.selectedIndex = 0 }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

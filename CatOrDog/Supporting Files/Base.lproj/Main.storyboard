@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Animal Picker Controller-->
+        <!--Cat or Dog-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="AnimalPickerController" customModule="CatOrDog" customModuleProvider="target" sceneMemberID="viewController">
@@ -124,7 +124,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SCt-Sy-2ya"/>
+                    <navigationItem key="navigationItem" title="Cat or Dog" id="SCt-Sy-2ya"/>
                     <connections>
                         <outlet property="catsCollectionView" destination="0wV-IM-Dzv" id="Q6U-rA-HGC"/>
                         <outlet property="dogsCollectionView" destination="0ER-PZ-Kgb" id="Myt-Wq-mbH"/>
@@ -159,6 +159,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="z5g-lv-L6m" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YF5-iP-eJN">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -171,7 +172,7 @@
             </objects>
             <point key="canvasLocation" x="-1078" y="116"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Animal Profile-->
         <scene sceneID="gs9-gP-BKJ">
             <objects>
                 <viewController id="9AF-SJ-2iK" customClass="ProfileViewController" customModule="CatOrDog" customModuleProvider="target" sceneMemberID="viewController">
@@ -179,7 +180,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-6w-NwN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you a Cat or a Dog Person?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-6w-NwN">
                                 <rect key="frame" x="0.0" y="341" width="375" height="277"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -188,9 +189,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ctP-26-rVO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="277"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fds-qd-dRh">
+                                <rect key="frame" x="162" y="525.5" width="51" height="30"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateProfile:" destination="9AF-SJ-2iK" eventType="touchUpInside" id="aEF-Yp-Bam"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Fds-qd-dRh" firstAttribute="centerX" secondItem="Zz5-Cx-UCX" secondAttribute="centerX" id="DHS-Rg-lrG"/>
+                            <constraint firstItem="Fds-qd-dRh" firstAttribute="top" secondItem="FrL-p5-tAc" secondAttribute="bottom" multiplier="0.85" id="FzV-P2-wet"/>
                             <constraint firstItem="ctP-26-rVO" firstAttribute="leading" secondItem="FrL-p5-tAc" secondAttribute="leading" id="O6Q-ng-KSk"/>
                             <constraint firstItem="eCF-6w-NwN" firstAttribute="top" secondItem="ctP-26-rVO" secondAttribute="bottom" id="YPl-pd-kwN"/>
                             <constraint firstItem="eCF-6w-NwN" firstAttribute="bottom" secondItem="FrL-p5-tAc" secondAttribute="bottom" id="Zdi-bd-iEA"/>
@@ -202,10 +212,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FrL-p5-tAc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="R8M-gs-6hJ"/>
+                    <navigationItem key="navigationItem" title="Animal Profile" id="R8M-gs-6hJ"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="eCF-6w-NwN" id="efE-0L-b55"/>
                         <outlet property="imageView" destination="ctP-26-rVO" id="bBW-dR-J6j"/>
+                        <outlet property="updateProfileButton" destination="Fds-qd-dRh" id="vIV-26-yrK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6y-cl-gFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
